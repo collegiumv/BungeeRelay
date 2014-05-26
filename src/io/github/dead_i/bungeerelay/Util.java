@@ -40,7 +40,6 @@ public class Util {
     public static void sendChannelJoin(ProxiedPlayer p, String c) {
         String uid = IRC.uids.get(p);
         IRC.out.println("FJOIN " + c + " " + System.currentTimeMillis() / 1000 + " +nt :," + uid);
-        giveChannelModes(p, c);
     }
 
     public static void giveChannelModes(ProxiedPlayer p, String c) {
@@ -82,8 +81,6 @@ public class Util {
     public static void sendMainJoin(String c, String m, String t) {
         long chanTS = getChanTS(c);
         IRC.out.println("FJOIN " + c + " " + chanTS + " +nt :," + IRC.mainUid);
-
-        giveChannelModes(c, m, IRC.mainUid);
 
         if (!t.isEmpty()) IRC.out.println(":" + IRC.mainUid + " TOPIC " + c + " :" + t);
     }

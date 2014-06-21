@@ -240,6 +240,11 @@ public class IRC {
         }
 
         if (ex[1].equals("FJOIN")) {
+            System.err.println ( "FJOIN!!" );
+            for ( String s : ex )
+            {
+                System.err.println ( s );
+            }
             for (ProxiedPlayer p : Util.getPlayersByChannel(ex[2])) {
                 p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', config.getString("formats.join")
                         .replace("{SENDER}", users.get(ex[5].split(",")[1])))));
